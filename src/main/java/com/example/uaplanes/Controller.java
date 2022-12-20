@@ -9,11 +9,6 @@ public class Controller {
 
     public static int flights;
 
-    @GetMapping("/")
-    public String getIndex() {
-        return "Welcome, this is home page of uaplanes!";
-    }
-
     @GetMapping("/api/flights")
     public String getAllFlights() {
         return "all";
