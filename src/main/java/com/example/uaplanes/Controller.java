@@ -1,5 +1,6 @@
 package com.example.uaplanes;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,6 +12,14 @@ public class Controller {
     private static Integer currentId = 1;
     static {
         Flight f = new Flight();
+        f.setId(1);
+        f.setFlightNumber(228);
+        f.setPrice(12.3);
+        f.setCreationDate("20.12.22 - 11:03");
+        f.setDeparture("Alabama");
+        f.setArrival("San-Paulo");
+        f.setDepartureDateTime("22.12.22 - 6:30");
+        f.setArrivalDateTime("22.12.22 - 10:00");
         flights.add(f);
         currentId += f.getId();
     }
@@ -31,23 +40,17 @@ public class Controller {
         return flights.get(id - 1).toString();
     }
 
-    @PostMapping("/api/flights/add")
-    public String addFlight() {
-        Flight f = new Flight();
-        f.id = currentId;
-        f.flightNumber = 123;
-        f.price = 13.7;
-        f.creationDate = "21.12.22 - 16:02";
-        f.departure = "Alaska";
-        f.arrival = "Stockholm";
-        f.departureDateTime = "23.12.22 - 22:30";
-        f.arrivalDateTime = "24.12.22 - 10:00";
+    @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json" )
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public String addFlight(@RequestBody Flight f) {
+        f.setId(currentId);
         flights.add(f);
         currentId += 1;
         return "Added flight: " + f.toString();
     }
 
     @DeleteMapping("/api/flights/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public String deleteFlightById(@PathVariable int id) {
         flights.removeIf(obj -> obj.getId() == id);
         return "Deleted flight with id " + id;
