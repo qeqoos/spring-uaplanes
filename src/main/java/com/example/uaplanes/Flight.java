@@ -73,18 +73,4 @@ public class Flight {
     public void setArrivalDateTime(String arrivalDateTime) {
         this.arrivalDateTime = arrivalDateTime;
     }
-
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "id=" + id +
-                ", flightNumber=" + flightNumber +
-                ", price=" + price +
-                ", creationDate='" + creationDate + '\'' +
-                ", departure='" + departure + '\'' +
-                ", arrival='" + arrival + '\'' +
-                ", departureDateTime='" + departureDateTime + '\'' +
-                ", arrivalDateTime='" + arrivalDateTime + '\'' +
-                '}';
-    }
 }

@@ -25,19 +25,13 @@ public class Controller {
     }
 
     @GetMapping("/api/flights")
-    @ResponseBody
-    public String getAllFlights() {
-        String response = "";
-        for (Flight f:flights) {
-            response += f.toString();
-            response += "\n";
-        }
-        return response;
+    public List<Flight> getAllFlights() {
+        return flights;
     }
 
     @GetMapping("/api/flights/{id}")
-    public String getFlightById(@PathVariable int id) {
-        return flights.get(id - 1).toString();
+    public List<Flight> getFlightById(@PathVariable int id) {
+        return flights.stream().filter(obj -> obj.getId() == id).toList();
     }
 
     @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json" )
@@ -46,7 +40,7 @@ public class Controller {
         f.setId(currentId);
         flights.add(f);
         currentId += 1;
-        return "Added flight: " + f.toString();
+        return "Added flight with id: " + f.getId();
     }
 
     @DeleteMapping("/api/flights/{id}")
