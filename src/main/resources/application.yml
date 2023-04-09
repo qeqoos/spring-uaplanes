@@ -5,9 +5,16 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://planes_postgresql:5432/uaplanes
-    username:
-    password:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: pavel
+    password: superpass
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
