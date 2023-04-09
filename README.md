@@ -11,7 +11,7 @@ HTTP METHOD  |  PATH  |  DESCRIPTION
 
 
 POST body example:
-`
+```
 {
 "id": 2,
 "flightNumber": 123,
@@ -22,6 +22,6 @@ POST body example:
 "departureDateTime": "23.12.22 - 22:30",
 "arrivalDateTime": "24.12.22 - 10:00"
 }
-`
+```
 
 Postman collection is also included.

@@ -1,0 +1,13 @@
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://planes_postgresql:5432/uaplanes
+    username:
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
