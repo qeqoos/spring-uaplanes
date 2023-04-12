@@ -6,12 +6,13 @@ services:
     environment:
       POSTGRES_USER: pavel
       POSTGRES_PASSWORD: superpass
+      POSTGRES_DB: uaplanes
     ports:
       - "5432:5432"
-    volumes:
-      - postgresql:/var/lib/postgresql
-      - postgresql_data:/var/lib/postgresql/data
+#    volumes:
+#      - postgresql:/var/lib/postgresql
+#      - postgresql_data:/var/lib/postgresql/data
 
-volumes:
-  postgresql:
-  postgresql_data:
+#volumes:
+#  postgresql:
+#  postgresql_data:
