@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.OffsetDateTime;
+
 @Entity
 public class userProfile {
     @Id
@@ -15,12 +17,12 @@ public class userProfile {
     private String last_name;
     private String username;
     private String password;
-    private String created_at;
+    private OffsetDateTime created_at;
 
     public userProfile() {
     }
 
-    public userProfile(Integer user_profile_id, String first_name, String last_name, String username, String password, String created_at) {
+    public userProfile(Integer user_profile_id, String first_name, String last_name, String username, String password, OffsetDateTime created_at) {
         this.user_profile_id = user_profile_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -65,15 +67,13 @@ public class userProfile {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) { this.password = password; }
 
-    public String getCreated_at() {
+    public OffsetDateTime getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(OffsetDateTime created_at) {
         this.created_at = created_at;
     }
 }

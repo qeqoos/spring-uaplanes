@@ -19,7 +19,7 @@ public class TicketController {
     }
 
     @GetMapping("/api/tickets/{id}")
-    public ResponseEntity getUserById(@PathVariable int id) {
+    public ResponseEntity getTicketById(@PathVariable int id) {
         return ResponseEntity.ok(this.ticketRepository.findById(id));
     }
 

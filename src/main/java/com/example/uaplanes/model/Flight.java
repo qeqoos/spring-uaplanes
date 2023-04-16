@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.OffsetDateTime;
+
 @Entity
 public class Flight {
     @Id
@@ -13,16 +15,16 @@ public class Flight {
 
     private Integer departure_city_id;
     private Integer arrival_city_id;
-    private String departure_time;
-    private String arrival_time;
+    private OffsetDateTime departure_time;
+    private OffsetDateTime arrival_time;
     private Integer flight_number;
     private Double price;
-    private String created_at;
+    private OffsetDateTime created_at;
 
     public Flight() {
     }
 
-    public Flight(Integer flight_id, Integer departure_city_id, Integer arrival_city_id, String departure_time, String arrival_time, Integer flight_number, Double price, String created_at) {
+    public Flight(Integer flight_id, Integer departure_city_id, Integer arrival_city_id, OffsetDateTime departure_time, OffsetDateTime arrival_time, Integer flight_number, Double price, OffsetDateTime created_at) {
         this.flight_id = flight_id;
         this.departure_city_id = departure_city_id;
         this.arrival_city_id = arrival_city_id;
@@ -57,19 +59,19 @@ public class Flight {
         this.arrival_city_id = arrival_city_id;
     }
 
-    public String getDeparture_time() {
+    public OffsetDateTime getDeparture_time() {
         return departure_time;
     }
 
-    public void setDeparture_time(String departure_time) {
+    public void setDeparture_time(OffsetDateTime departure_time) {
         this.departure_time = departure_time;
     }
 
-    public String getArrival_time() {
+    public OffsetDateTime getArrival_time() {
         return arrival_time;
     }
 
-    public void setArrival_time(String arrival_time) {
+    public void setArrival_time(OffsetDateTime arrival_time) {
         this.arrival_time = arrival_time;
     }
 
@@ -89,11 +91,11 @@ public class Flight {
         this.price = price;
     }
 
-    public String getCreated_at() {
+    public OffsetDateTime getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(OffsetDateTime created_at) {
         this.created_at = created_at;
     }
 }
