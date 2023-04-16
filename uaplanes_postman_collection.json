@@ -6,92 +6,238 @@
   },
   "item": [
     {
-      "name": "Get all flights",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{ url }}:8080/api/flights",
-          "host": [
-            "{{ url }}"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "flights"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get flight by ID",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{ url }}:8080/api/flights/{id}",
-          "host": [
-            "{{ url }}"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "flights",
-            "{id}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Add flight",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"id\": 2,\r\n    \"flightNumber\": 123,\r\n    \"price\": 13.7,\r\n    \"creationDate\": \"21.12.22 - 16:02\",\r\n    \"arrival\": \"Stockholm\",\r\n    \"departure\": \"Brazil\",\r\n    \"departureDateTime\": \"23.12.22 - 22:30\",\r\n    \"arrivalDateTime\": \"24.12.22 - 10:00\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Flights",
+      "item": [
+        {
+          "name": "Get all flights",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/flights",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "flights"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{ url }}:8080/api/flights/add",
-          "host": [
-            "{{ url }}"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "flights",
-            "add"
-          ]
+        {
+          "name": "Get flight by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/flights/{id}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "flights",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add flight",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"flight_number\": 123,\r\n    \"price\": 13.7,\r\n    \"created_at\": \"2023-11-19T17:03:05+02\",\r\n    \"arrival_city_id\": \"3\",\r\n    \"departure_city_id\": \"2\",\r\n    \"departure_time\": \"2023-11-23T21:23:54+02\",\r\n    \"arrival_time\": \"2023-11-24T05:23:54+02\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}:8080/api/flights/add",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "flights",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete flight by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/flights/{id}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "flights",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Delete flight by ID",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "{{ url }}:8080/api/flights/{id}",
-          "host": [
-            "{{ url }}"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "flights",
-            "{id}"
-          ]
+      "name": "Tickets",
+      "item": [
+        {
+          "name": "Get all tickets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/tickets",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tickets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get ticket by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/tickets/{id}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tickets",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add ticket",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"flight_id\": 2,\r\n    \"user_profile_id\": 1,\r\n    \"pnr\": \"asd\",\r\n    \"created_at\": \"2023-11-19T17:03:05+02\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}:8080/api/tickets/add",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tickets",
+                "add"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/users",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get user by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/users/{id}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "users",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cities",
+      "item": [
+        {
+          "name": "Get all cities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}:8080/api/cities",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
@@ -117,7 +263,7 @@
   "variable": [
     {
       "key": "url",
-      "value": "localhost",
+      "value": "127.0.0.1",
       "type": "default"
     }
   ]
