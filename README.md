@@ -22,7 +22,7 @@ For launching in container:
 
 ### Installation
 
-Build project by using `./gradlew build`. For local testing, launch `.jar` file located in `build/libs/`.
+Build project by using `./gradlew build -x test`. For local testing, launch `.jar` file located in `build/libs/`.
 Following environment variables are required:
 
 * DB_HOST
@@ -32,7 +32,7 @@ Following environment variables are required:
 
 ### Containerization
 
-Run `docker build -f Dockerfile -t <image_name>:<iamge_tag> .` (don't forget dot at the end).
+Run `docker build -f Dockerfile -t <image_name>:<image_tag> .` (don't forget dot at the end).
 
 Run `docker compose up -d` to launch DB and freshly containerized app.
 
