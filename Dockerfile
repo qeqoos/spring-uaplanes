@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the application JAR file to /app
 # First arg points to file on our system and second file is the destination inside container
-COPY build/libs/uaplanes-0.0.1-SNAPSHOT.jar /app/uaplanes.jar
+COPY build/libs/uaplanes-*.jar /app/uaplanes.jar
 
 # DOCUMENT that app will work on port 8080 for incoming traffic
 EXPOSE 8080
