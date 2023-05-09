@@ -1,86 +1,98 @@
 package com.example.uaplanes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "flight")
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer flight_id;
+    @Column(name = "flight_id")
+    private Integer flightId;
 
-    private Integer departure_city_id;
-    private Integer arrival_city_id;
-    private OffsetDateTime departure_time;
-    private OffsetDateTime arrival_time;
-    private Integer flight_number;
+    @Column(name = "departure_city_id")
+    private Integer departureCityId;
+
+    @Column(name = "arrival_city_id")
+    private Integer arrivalCityId;
+
+    @Column(name = "departure_time")
+    private OffsetDateTime departureTime;
+
+    @Column(name = "arrival_time")
+    private OffsetDateTime arrivalTime;
+
+    @Column(name = "flight_number")
+    private Integer flightNumber;
+
+    @Column(name = "price")
     private Double price;
-    private OffsetDateTime created_at;
+
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
     public Flight() {
     }
 
-    public Flight(Integer flight_id, Integer departure_city_id, Integer arrival_city_id, OffsetDateTime departure_time, OffsetDateTime arrival_time, Integer flight_number, Double price, OffsetDateTime created_at) {
-        this.flight_id = flight_id;
-        this.departure_city_id = departure_city_id;
-        this.arrival_city_id = arrival_city_id;
-        this.departure_time = departure_time;
-        this.arrival_time = arrival_time;
-        this.flight_number = flight_number;
+    public Flight(Integer flightId, Integer departureCityId, Integer arrivalCityId, OffsetDateTime departureTime, OffsetDateTime arrivalTime, Integer flightNumber, Double price, OffsetDateTime createdAt) {
+        this.flightId = flightId;
+        this.departureCityId = departureCityId;
+        this.arrivalCityId = arrivalCityId;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.flightNumber = flightNumber;
         this.price = price;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
-    public Integer getFlight_id() {
-        return flight_id;
+    public Integer getFlightId() {
+        return flightId;
     }
 
-    public void setFlight_id(Integer flight_id) {
-        this.flight_id = flight_id;
+    public void setFlightId(Integer flightId) {
+        this.flightId = flightId;
     }
 
-    public Integer getDeparture_city_id() {
-        return departure_city_id;
+    public Integer getDepartureCityId() {
+        return departureCityId;
     }
 
-    public void setDeparture_city_id(Integer departure_city_id) {
-        this.departure_city_id = departure_city_id;
+    public void setDepartureCityId(Integer departureCityId) {
+        this.departureCityId = departureCityId;
     }
 
-    public Integer getArrival_city_id() {
-        return arrival_city_id;
+    public Integer getArrivalCityId() {
+        return arrivalCityId;
     }
 
-    public void setArrival_city_id(Integer arrival_city_id) {
-        this.arrival_city_id = arrival_city_id;
+    public void setArrivalCityId(Integer arrivalCityId) {
+        this.arrivalCityId = arrivalCityId;
     }
 
-    public OffsetDateTime getDeparture_time() {
-        return departure_time;
+    public OffsetDateTime getDepartureTime() {
+        return departureTime;
     }
 
-    public void setDeparture_time(OffsetDateTime departure_time) {
-        this.departure_time = departure_time;
+    public void setDepartureTime(OffsetDateTime departureTime) {
+        this.departureTime = departureTime;
     }
 
-    public OffsetDateTime getArrival_time() {
-        return arrival_time;
+    public OffsetDateTime getArrivalTime() {
+        return arrivalTime;
     }
 
-    public void setArrival_time(OffsetDateTime arrival_time) {
-        this.arrival_time = arrival_time;
+    public void setArrivalTime(OffsetDateTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
     }
 
-    public Integer getFlight_number() {
-        return flight_number;
+    public Integer getFlightNumber() {
+        return flightNumber;
     }
 
-    public void setFlight_number(Integer flight_number) {
-        this.flight_number = flight_number;
+    public void setFlightNumber(Integer flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
     public Double getPrice() {
@@ -91,11 +103,11 @@ public class Flight {
         this.price = price;
     }
 
-    public OffsetDateTime getCreated_at() {
-        return created_at;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(OffsetDateTime created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

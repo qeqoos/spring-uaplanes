@@ -1,56 +1,62 @@
 package com.example.uaplanes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "ticket")
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer ticket_id;
+    @Column(name = "ticket_id")
+    private Integer ticketId;
 
-    private Integer flight_id;
-    private Integer user_profile_id;
+    @Column(name = "flight_id")
+    private Integer flightId;
+
+    @Column(name = "user_profile_id")
+    private Integer userProfileId;
+
+    @Column(name = "pnr")
     private String pnr;
-    private OffsetDateTime created_at;
+
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
     public Ticket() {
     }
 
-    public Ticket(Integer ticket_id, Integer flight_id, Integer user_profile_id, String pnr, OffsetDateTime created_at) {
-        this.ticket_id = ticket_id;
-        this.flight_id = flight_id;
-        this.user_profile_id = user_profile_id;
+    public Ticket(Integer ticketId, Integer flightId, Integer userProfileId, String pnr, OffsetDateTime createdAt) {
+        this.ticketId = ticketId;
+        this.flightId = flightId;
+        this.userProfileId = userProfileId;
         this.pnr = pnr;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
-    public Integer getTicket_id() {
-        return ticket_id;
+    public Integer getTicketId() {
+        return ticketId;
     }
 
-    public void setTicket_id(Integer ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(Integer ticketId) {
+        this.ticketId = ticketId;
     }
 
-    public Integer getFlight_id() {
-        return flight_id;
+    public Integer getFlightId() {
+        return flightId;
     }
 
-    public void setFlight_id(Integer flight_id) {
-        this.flight_id = flight_id;
+    public void setFlightId(Integer flightId) {
+        this.flightId = flightId;
     }
 
-    public Integer getUser_profile_id() {
-        return user_profile_id;
+    public Integer getUserProfileId() {
+        return userProfileId;
     }
 
-    public void setUser_profile_id(Integer user_profile_id) {
-        this.user_profile_id = user_profile_id;
+    public void setUserProfileId(Integer userProfileId) {
+        this.userProfileId = userProfileId;
     }
 
     public String getPnr() {
@@ -61,11 +67,11 @@ public class Ticket {
         this.pnr = pnr;
     }
 
-    public OffsetDateTime getCreated_at() {
-        return created_at;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(OffsetDateTime created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

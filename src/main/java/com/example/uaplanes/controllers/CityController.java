@@ -1,20 +1,20 @@
 package com.example.uaplanes.controllers;
 
-import com.example.uaplanes.repository.CityRepository;
+import com.example.uaplanes.service.CityService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CityController {
-    private final CityRepository cityRepository;
+    private final CityService cityService;
 
-    public CityController(CityRepository cityRepository) {
-        this.cityRepository = cityRepository;
+    public CityController(CityService cityService) {
+        this.cityService = cityService;
     }
 
     @GetMapping("/api/cities")
     public ResponseEntity getAllCities() {
-        return ResponseEntity.ok(this.cityRepository.findAll());
+        return ResponseEntity.ok(this.cityService.getAllCities());
     }
 }

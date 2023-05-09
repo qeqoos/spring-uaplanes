@@ -1,58 +1,66 @@
 package com.example.uaplanes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.OffsetDateTime;
 
 @Entity
+@Table(name = "user_profile")
 public class userProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer user_profile_id;
+    @Column(name = "user_profile_id")
+    private Integer userProfileId;
 
-    private String first_name;
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
     private String password;
-    private OffsetDateTime created_at;
+
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
 
     public userProfile() {
     }
 
-    public userProfile(Integer user_profile_id, String first_name, String last_name, String username, String password, OffsetDateTime created_at) {
-        this.user_profile_id = user_profile_id;
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public userProfile(Integer userProfileId, String firstName, String lastName, String username, String password, OffsetDateTime createdAt) {
+        this.userProfileId = userProfileId;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.password = password;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
-    public Integer getUser_profile_id() {
-        return user_profile_id;
+    public Integer getUserProfileId() {
+        return userProfileId;
     }
 
-    public void setUser_profile_id(Integer user_profile_id) {
-        this.user_profile_id = user_profile_id;
+    public void setUserProfileId(Integer userProfileId) {
+        this.userProfileId = userProfileId;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUsername() {
@@ -67,13 +75,15 @@ public class userProfile {
         return password;
     }
 
-    public void setPassword(String password) { this.password = password; }
-
-    public OffsetDateTime getCreated_at() {
-        return created_at;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setCreated_at(OffsetDateTime created_at) {
-        this.created_at = created_at;
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

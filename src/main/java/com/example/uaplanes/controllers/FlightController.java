@@ -1,21 +1,21 @@
 package com.example.uaplanes.controllers;
 
 import com.example.uaplanes.model.Flight;
-import com.example.uaplanes.repository.FlightRepository;
+import com.example.uaplanes.service.FlightService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FlightController {
-    private final FlightRepository flightRepository;
+    private final FlightService flightService;
 
-    public FlightController(FlightRepository flightRepository) {
-        this.flightRepository = flightRepository;
+    public FlightController(FlightService flightService) {
+        this.flightService = flightService;
     }
 
     @GetMapping("/api/flights")
     public ResponseEntity getAllFlights() {
-        return ResponseEntity.ok(this.flightRepository.findAll());
+        return ResponseEntity.ok(this.flightRepository.);
     }
 
     @GetMapping("/api/flights/{id}")
