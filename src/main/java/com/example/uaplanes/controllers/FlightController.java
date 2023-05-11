@@ -15,22 +15,22 @@ public class FlightController {
 
     @GetMapping("/api/flights")
     public ResponseEntity getAllFlights() {
-        return ResponseEntity.ok(this.flightRepository.);
+        return ResponseEntity.ok(this.flightService.getAllFlights());
     }
 
     @GetMapping("/api/flights/{id}")
     public ResponseEntity getFlightById(@PathVariable int id) {
-        return ResponseEntity.ok(this.flightRepository.findById(id));
+        return ResponseEntity.ok(this.flightService.getFlightById(id));
     }
 
     @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json" )
     public ResponseEntity createFlight(@RequestBody Flight flight) {
-        return ResponseEntity.ok(this.flightRepository.save(flight));
+        return ResponseEntity.ok(this.flightService.createFlight(flight));
     }
 
     @DeleteMapping("/api/flights/{id}")
     public ResponseEntity deleteFlightById(@PathVariable int id) {
-        this.flightRepository.deleteById(id);
+        this.flightService.deleteFlightById(id);
         return ResponseEntity.noContent().build();
     }
 }
