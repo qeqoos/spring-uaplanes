@@ -23,7 +23,7 @@ public class FlightController {
         return ResponseEntity.ok(this.flightService.getFlightById(id));
     }
 
-    @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json" )
+    @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json")
     public ResponseEntity createFlight(@RequestBody Flight flight) {
         return ResponseEntity.ok(this.flightService.createFlight(flight));
     }
