@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uaplanes-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: uaplanes
+  template:
+    metadata:
+      labels:
+        app: uaplanes
+    spec:
+      restartPolicy: Always
+      containers:
+        - image: uaplanes:0.1.0
+          imagePullPolicy: Never
+          name: uaplanes-app
+          env:
+            - name: DB_HOST
+              value: 10.98.159.120
+            - name: DB_NAME
+              value: uaplanes
+            - name: DB_PASSWORD
+              value: superpass
+            - name: DB_USER
+              value: pavel
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+            limits:
+              cpu: 300m
+              memory: 300Mi

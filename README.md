@@ -9,7 +9,8 @@ For local development:
 * Running instance of PostgreSQL database
 
 For launching in container:
-* Docker and docker-compose
+* Docker
+* Minikube
 
 ### Project structure
 
@@ -17,7 +18,7 @@ For launching in container:
 * `sql` - scripts for provisioning DB structure and filling it with sample data
 * `gradle` folder and all `gradle*` files - related to build of the app
 * `Dockerfile` - contains instructions for containerizing the app
-* `docker-compose.yml` - config for launching app container alongside with PostgreSQL database. DB data is persisted using volumes. You can configure all env variables for each container 
+* `k8s` - manifests for launching app container alongside with PostgreSQL database. You can configure all env variables for each container. 
 * `uaplanes_postman_collection.json` - import this file into Postman, and you'll get all the possible API requests
 
 ### Installation
@@ -30,18 +31,36 @@ Following environment variables are required:
 * DB_USERNAME
 * DB_PASSWORD
 
+### Install Minikube
+
+Get the official docs, download script and launch it. Then do `minikube start`.
+
 ### Containerization
 
 Run `docker build -f Dockerfile -t <image_name>:<image_tag> .` (don't forget dot at the end).
 
-Run `docker compose up -d` to launch DB and freshly containerized app.
+### Kubernetes
 
-Connect to DB using IntelliJ Idea and launch scripts from `sql`
- folder.
+Run `minikube image load <image_name>:<image_tag>` to allow Minikube to use our local image.
 
-Go to `localhost:8080` to check the availability of the app.
+Run `minikube kubectl -- apply -f k8s/postgres-deployment.yaml` to launch DB.
 
-Inspect logs with `docker logs <container_name>`.
+Run `minikube kubectl -- apply -f k8s/postgres-service.yaml` to expose DB on given NodePort (30432).
+
+Run `minikube service postgres --url` to allow access to DB from local machine. Use given address to connect to DB and execute SQL scripts. Connect to DB using IntelliJ Idea and launch scripts from `sql`
+folder.
+
+Run `minikube kubectl -- apply -f k8s/app-deployment.yaml` to launch app.
+
+Run `minikube kubectl -- apply -f k8s/app-service.yaml` to expose app on given NodePort (30080).
+
+Run `minikube service uaplanes --url` to allow access to app from local machine.
+
+Go to the given URL to check the availability of the app.
+
+Get pods with `minikube kubectl -- get pods`.
+
+Inspect logs with `minikube kubectl -- logs <pod_name>`
 
 ### Paths and requests:
 HTTP METHOD  |  PATH  |  DESCRIPTION
