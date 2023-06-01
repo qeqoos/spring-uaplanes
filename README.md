@@ -18,7 +18,7 @@ For launching in container:
 * `sql` - scripts for provisioning DB structure and filling it with sample data
 * `gradle` folder and all `gradle*` files - related to build of the app
 * `Dockerfile` - contains instructions for containerizing the app
-* `k8s` - manifests for launching app container alongside with PostgreSQL database. You can configure all env variables for each container. 
+* `k8s` - manifests for launching app container. RDS endpoint is used for connection to DB. You can configure all env variables for each container. 
 * `uaplanes_postman_collection.json` - import this file into Postman, and you'll get all the possible API requests
 
 ### Installation
@@ -43,12 +43,7 @@ Run `docker build -f Dockerfile -t <image_name>:<image_tag> .` (don't forget dot
 
 Run `minikube image load <image_name>:<image_tag>` to allow Minikube to use our local image.
 
-Run `minikube kubectl -- apply -f k8s/postgres-deployment.yaml` to launch DB.
-
-Run `minikube kubectl -- apply -f k8s/postgres-service.yaml` to expose DB on given NodePort (30432).
-
-Run `minikube service postgres --url` to allow access to DB from local machine. Use given address to connect to DB and execute SQL scripts. Connect to DB using IntelliJ Idea and launch scripts from `sql`
-folder.
+Edit `rds-externalname.yaml` with you database endpoint. Apply the manifest.
 
 Run `minikube kubectl -- apply -f k8s/app-deployment.yaml` to launch app.
 

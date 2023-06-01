@@ -19,7 +19,7 @@ spec:
           name: uaplanes-app
           env:
             - name: DB_HOST
-              value: 10.98.159.120
+              value: uaplanes-rds
             - name: DB_NAME
               value: uaplanes
             - name: DB_PASSWORD
