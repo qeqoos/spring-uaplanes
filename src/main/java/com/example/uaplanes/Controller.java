@@ -34,6 +34,11 @@ public class Controller {
         return flights.stream().filter(obj -> obj.getId() == id).toList();
     }
 
+    @GetMapping("/api/argo")
+    public String getSecretMessage() {
+        return "Updated with Argo";
+    }
+
     @PostMapping(value = "/api/flights/add", produces = "application/json", consumes = "application/json" )
     @ResponseStatus(code = HttpStatus.CREATED)
     public String addFlight(@RequestBody Flight f) {

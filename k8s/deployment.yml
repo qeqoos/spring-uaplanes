@@ -5,7 +5,7 @@ metadata:
   labels:
     app: uaplanes
   annotations: 
-    link.argocd.argoproj.io/external-link: https://gigargocd.azurecr.io/uaplanes:0.1
+    link.argocd.argoproj.io/external-link: https://gigargocd.azurecr.io/uaplanes
 spec:
   replicas: 1
   selector:
@@ -20,7 +20,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - image: gigargocd.azurecr.io/uaplanes:0.1
+        - image: gigargocd.azurecr.io/uaplanes:0.2
           imagePullPolicy: IfNotPresent
           name: uaplanes-app
           ports:
