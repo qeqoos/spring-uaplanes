@@ -5,7 +5,7 @@ metadata:
   labels:
     app: uaplanes
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: uaplanes
   ports:
